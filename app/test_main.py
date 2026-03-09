@@ -1,6 +1,7 @@
 from app.main import get_human_age
 import pytest
 
+
 @pytest.mark.parametrize(
     "cat_age,dog_age,expected_result",
     [
@@ -47,17 +48,19 @@ import pytest
     ]
 )
 def test_correct_count(
-        cat_age,
-        dog_age,
-        expected_result
+        cat_age: int,
+        dog_age: int,
+        expected_result: list
 ) -> None:
     assert get_human_age(cat_age, dog_age) == expected_result
+
 
 def test_negative_age() -> None:
     with pytest.raises(ValueError):
         get_human_age(-1, 5)
     with pytest.raises(ValueError):
         get_human_age(1, -5)
+
 
 def test_another_age() -> None:
     with pytest.raises(TypeError):

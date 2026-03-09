@@ -1,4 +1,4 @@
-def calculator_human(age, divisor):
+def calculator_human(age: int, divisor: int) -> int:
     if age < 0:
         raise ValueError("age must be non-negative")
     if not isinstance(age, int):

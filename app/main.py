@@ -1,5 +1,10 @@
 def calculator_human(age, divisor):
-    if age < 15 or age == 0:
+    if age < 0:
+        raise ValueError("age must be non-negative")
+    if not isinstance(age, int):
+        raise TypeError("age must be int")
+
+    if age < 15:
         return 0
     age_animal = int(age)
     age_human = 0
@@ -10,8 +15,6 @@ def calculator_human(age, divisor):
         age_animal -= 9
         age_human += 1
         age_human += age_animal // divisor
-    else:
-        pass
     return age_human
 
 
